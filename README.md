@@ -42,6 +42,8 @@ Or manually download and link **formatter.js** in your HTML, It can also be down
 </script>
 ```
 
+The above [example preview](https://codepen.io/jaywcjlove/pen/zbZKmq).
+
 ### timeZoneConverter
 
 Resolve changes in time zone, resulting in inaccurate display server time
