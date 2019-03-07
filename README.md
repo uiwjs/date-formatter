@@ -1,7 +1,7 @@
 formatter
 ---
 
-Get a formatted date.
+Get a formatted date. [Demo preview](https://codepen.io/jaywcjlove/pen/zbZKmq).
 
 ### Install
 
