@@ -18,9 +18,7 @@
     "date",
     "uiw"
   ],
-  "authors": [
-    "Kenny Wang <wowohoo@qq.com>"
-  ],
+  "author": "Kenny Wang <wowohoo@qq.com>",
   "repository": {
     "type": "git",
     "url": "https://github.com/uiwjs/date-formatter.git"
@@ -32,6 +30,7 @@
     "@babel/plugin-transform-runtime": "^7.3.4",
     "@babel/preset-env": "^7.3.4",
     "@babel/preset-typescript": "^7.3.3",
+    "bannerjs": "^1.0.6",
     "jest": "^24.1.0",
     "rollup": "^1.4.1",
     "rollup-plugin-commonjs": "^9.2.1",
