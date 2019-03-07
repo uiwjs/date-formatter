@@ -1,0 +1,43 @@
+{
+  "name": "@uiw/formatter",
+  "version": "1.1.4",
+  "description": "Get a formatted date.",
+  "main": "cjs/index.js",
+  "module": "esm/index.js",
+  "unpkg": "dist/formatter.js",
+  "typings": "dist/index.d.ts",
+  "scripts": {
+    "test": "jest",
+    "test:watch": "jest --watch",
+    "build": "rollup -c",
+    "start": "rollup -c -w"
+  },
+  "keywords": [
+    "date-formatter",
+    "formatter",
+    "date",
+    "uiw"
+  ],
+  "authors": [
+    "Kenny Wang <wowohoo@qq.com>"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/uiwjs/date-formatter.git"
+  },
+  "license": "MIT",
+  "devDependencies": {
+    "@babel/cli": "^7.2.3",
+    "@babel/core": "^7.3.4",
+    "@babel/plugin-transform-runtime": "^7.3.4",
+    "@babel/preset-env": "^7.3.4",
+    "@babel/preset-typescript": "^7.3.3",
+    "jest": "^24.1.0",
+    "rollup": "^1.4.1",
+    "rollup-plugin-commonjs": "^9.2.1",
+    "rollup-plugin-node-resolve": "^4.0.1",
+    "rollup-plugin-typescript2": "^0.19.3",
+    "rollup-plugin-uglify": "^6.0.2",
+    "typescript": "^3.3.3333"
+  }
+}

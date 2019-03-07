@@ -1,0 +1,41 @@
+{
+  "compilerOptions": {
+    "allowJs": false,
+    "allowSyntheticDefaultImports": true,
+    "declaration": true,
+    "esModuleInterop": true,
+    "forceConsistentCasingInFileNames": true,
+    "isolatedModules": false,
+    "lib": [
+      "es2015",
+      "es6",
+      "dom"
+    ],
+    "module": "esnext",
+    "moduleResolution": "node",
+    "noEmit": true,
+    "noImplicitAny": true,
+    "noImplicitReturns": true,
+    "noImplicitThis": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": false,
+    "outDir": "build",
+    "resolveJsonModule": true,
+    "skipLibCheck": false,
+    "sourceMap": true,
+    "strict": true,
+    "strictNullChecks": true,
+    "suppressImplicitAnyIndexErrors": true,
+    "target": "es5"
+  },
+  "exclude": [
+    "build",
+    "dist",
+    "example",
+    "node_modules",
+    "rollup.config.js"
+  ],
+  "include": [
+    "src"
+  ]
+}
