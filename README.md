@@ -1,6 +1,8 @@
 formatter
 ---
 
+[![](https://img.shields.io/github/issues/uiwjs/date-formatter.svg)](https://github.com/uiwjs/date-formatter/issues) [![](https://img.shields.io/github/forks/uiwjs/date-formatter.svg)](https://github.com/uiwjs/date-formatter/network) [![](https://img.shields.io/github/stars/uiwjs/date-formatter.svg)](https://github.com/uiwjs/date-formatter/stargazers) [![](https://img.shields.io/github/release/uiwjs/date-formatter.svg)](https://github.com/uiwjs/date-formatter/releases) ![](http://jaywcjlove.github.io/sb/status/no-dependencies.svg) [![Build Status](https://www.travis-ci.org/uiwjs/date-formatter.svg?branch=master)](https://www.travis-ci.org/uiwjs/date-formatter)
+
 Get a formatted date. [Demo preview](https://codepen.io/jaywcjlove/pen/zbZKmq).
 
 ### Install
