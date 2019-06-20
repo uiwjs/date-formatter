@@ -13,6 +13,11 @@
     "build": "rollup -c",
     "start": "rollup -c -w"
   },
+  "files": [
+    "cjs",
+    "esm",
+    "dist"
+  ],
   "keywords": [
     "date-formatter",
     "formatter",
