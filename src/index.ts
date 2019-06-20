@@ -11,7 +11,7 @@ const timespan = {
   ms: ['getMilliseconds', 3],
 };
 
-function formatter(str: string, date: Date, utc: boolean): string {
+function formatter(str: string, date: Date, utc?: boolean): string {
   if (typeof str !== 'string') {
     date = str;
     str = 'YYYY-MM-DD';
