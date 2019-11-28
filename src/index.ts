@@ -11,15 +11,12 @@ const timespan = {
   ms: ['getMilliseconds', 3],
 };
 
-function formatter(str: string, date: Date, utc?: boolean): string {
+function formatter(str?: string, date?: Date, utc?: boolean): string {
   if (typeof str !== 'string') {
     date = str;
     str = 'YYYY-MM-DD';
   }
 
-  if (!date) {
-    date = new Date();
-  }
   return str.replace(dateRegex, (match: string, key: string, rest?: string) => {
     const args = timespan[key];
     const chars = args[1];
@@ -27,12 +24,15 @@ function formatter(str: string, date: Date, utc?: boolean): string {
     if (utc === true) {
       name = `getUTC${name.slice(3)}`;
     }
+    if (!date) {
+      date = new Date();
+    }
     const val = `00${String(date[name]() + (args[2] || 0))}`;
     return val.slice(-chars) + (rest || '');
   });
 }
 
-formatter.utc = (str: string, date: Date): string => {
+formatter.utc = (str?: string, date?: Date): string => {
   return formatter(str, date, true);
 };
 
