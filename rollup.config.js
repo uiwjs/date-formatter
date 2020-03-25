@@ -1,7 +1,7 @@
 import typescript from 'rollup-plugin-typescript2';
-import commonjs from 'rollup-plugin-commonjs';
-import resolve from 'rollup-plugin-node-resolve';
-import { uglify } from "rollup-plugin-uglify";
+import commonjs from '@rollup/plugin-commonjs';
+import resolve from '@rollup/plugin-node-resolve';
+import { terser } from 'rollup-plugin-terser';
 import banner from 'bannerjs';
 
 import pkg from './package.json';
@@ -24,15 +24,20 @@ export default [{
       rollupCommonJSResolveHack: true,
       exclude: ['*.d.ts', '**/*.d.ts'],
     }),
-    uglify({
-      output: {
-        comments: "all"
-      }
-    })
+    terser({
+      include: [/^.+\.min\.js$/],
+    }),
   ]
 },{
   input: 'src/index.ts',
   output: [
+    {
+      file: 'dist/formatter.min.js',
+      format: 'umd',
+      name: 'formatter',
+      banner: banner.onebanner(),
+      sourcemap: true
+    },
     {
       file: pkg.unpkg,
       format: 'umd',
@@ -55,7 +60,6 @@ export default [{
       sourcemap: true,
     },
   ],
-
   plugins: [
     resolve(),
     typescript({
