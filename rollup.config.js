@@ -16,28 +16,6 @@ export default [{
       banner: banner.onebanner(),
       sourcemap: true
     },
-  ],
-
-  plugins: [
-    typescript({
-      clean: true,
-      rollupCommonJSResolveHack: true,
-      exclude: ['*.d.ts', '**/*.d.ts'],
-    }),
-    terser({
-      include: [/^.+\.min\.js$/],
-    }),
-  ]
-},{
-  input: 'src/index.ts',
-  output: [
-    {
-      file: 'dist/formatter.min.js',
-      format: 'umd',
-      name: 'formatter',
-      banner: banner.onebanner(),
-      sourcemap: true
-    },
     {
       file: pkg.unpkg,
       format: 'umd',
@@ -49,6 +27,7 @@ export default [{
       file: pkg.main,
       format: 'cjs',
       name: 'formatter',
+      exports: 'auto',
       banner: banner.multibanner(),
       sourcemap: true,
     },
@@ -68,5 +47,24 @@ export default [{
       exclude: ['*.d.ts', '**/*.d.ts'],
     }),
     commonjs(),
+  ]
+}, {
+  input: 'src/index.ts',
+  output: [
+    {
+      file: 'dist/formatter.min.js',
+      format: 'umd',
+      name: 'formatter',
+      banner: banner.onebanner(),
+      sourcemap: true
+    },
+  ],
+  plugins: [
+    typescript({
+      clean: true,
+      rollupCommonJSResolveHack: true,
+      exclude: ['*.d.ts', '**/*.d.ts'],
+    }),
+    terser({}),
   ]
 }];
