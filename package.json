@@ -37,7 +37,7 @@
     "@babel/preset-env": "7.11.0",
     "@babel/preset-typescript": "7.10.4",
     "@rollup/plugin-commonjs": "15.0.0",
-    "@rollup/plugin-node-resolve": "9.0.0",
+    "@rollup/plugin-node-resolve": "10.0.0",
     "bannerjs": "1.0.7",
     "jest": "25.2.4",
     "rollup": "2.26.3",
