@@ -1,12 +1,32 @@
 const formatter = require('../cjs');
 
+
+function timeZoneConverter(date, timeZone) {
+  const oldDate = new Date(date);
+  const newDate = new Date();
+  const stamp = oldDate.getTime();
+  if (!timeZone) return oldDate;
+  return (isNaN(timeZone) && !timeZone)
+    ? oldDate :
+    new Date(stamp + (newDate.getTimezoneOffset() * 60 * 1000) + (timeZone * 60 * 60 * 1000));
+}
+// timeZoneConverter(new Date(1434701732*1000), 8)
+
+
+test('should return the default formatter.utc', () => {
+  const date = new Date();
+  const month = date.getUTCMonth() + 1;
+  const day = date.getUTCDate();
+  const str = `${date.getUTCFullYear()}-${month < 10 ? `0${month}` : month}-${day < 10 ? `0${day}` : day}`;
+  expect(formatter.utc()).toBe(str);
+});
+
 test('should return the default formatter', () => {
   const date = new Date();
   const month = date.getMonth() + 1;
   const day = date.getDate();
   const str = `${date.getFullYear()}-${month < 10 ? `0${month}` : month}-${day < 10 ? `0${day}` : day}`;
   expect(formatter()).toBe(str);
-  expect(formatter.utc()).toBe(str);
   expect(/^\d{4}-\d{2}-\d{2}$/.test(formatter())).toBeTruthy();
   expect(/^\d{4}-\d{2}-\d{2}$/.test(formatter.utc())).toBeTruthy();
 });
