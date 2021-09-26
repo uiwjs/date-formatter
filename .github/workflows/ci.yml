@@ -1,4 +1,4 @@
-name: GitHub Actions Build formatter
+name: Build & Test
 on:
   push:
     branches:
@@ -7,49 +7,53 @@ jobs:
   build:
     runs-on: ubuntu-18.04
     steps:
-      - uses: actions/checkout@master
-
-      - name: Setup Node
-        uses: actions/setup-node@v1
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v2
         with:
-          node-version: '12.x'
+          node-version: 14
 
       - run: npm install
       - run: npm run build
       - run: npm run test
 
+      - run: npm i markdown-to-html-cli -g
+      - run: markdown-to-html --output coverage/index.html --github-corners https://github.com/uiwjs/date-formatter
+
+      - name: Deploy
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./coverage
+
       - name: Create Tag
         id: create_tag
-        uses: jaywcjlove/create-tag-action@v1.1.7
+        uses: jaywcjlove/create-tag-action@v1.2.1
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
           package-path: ./package.json
 
       - name: Generate Changelog
         id: changelog
-        uses: jaywcjlove/changelog-generator@v1.3.9
+        uses: jaywcjlove/changelog-generator@v1.4.6
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
           head-ref: ${{steps.create_tag.outputs.version}}
-          filter-author: (jaywcjlove|小弟调调™|dependabot\[bot\]|Renovate Bot)
+          filter-author: (小弟调调™)
           filter: '[R|r]elease[d]\s+[v|V]\d(\.\d+){0,2}'
 
       - name: Create Release
-        id: create_release
-        uses: actions/create-release@latest
+        uses: ncipollo/release-action@v1
         if: steps.create_tag.outputs.successful
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
-          tag_name: ${{ steps.create_tag.outputs.version }}
-          release_name: ${{ steps.create_tag.outputs.version }}
+          token: ${{ secrets.GITHUB_TOKEN }}
+          name: ${{ steps.changelog.outputs.tag }}
+          tag: ${{ steps.changelog.outputs.tag }}
           body: |
-            [![](https://img.shields.io/badge/Open%20in-unpkg-blue)](https://uiwjs.github.io/npm-unpkg/#/@uiw/formatter@${{steps.create_tag.outputs.versionNumber}}/file/README.md) [![](https://img.shields.io/github/issues/uiwjs/date-formatter.svg)](https://github.com/uiwjs/date-formatter/releases) [![](https://img.shields.io/github/forks/uiwjs/date-formatter.svg)](https://github.com/uiwjs/date-formatter/network) [![](https://img.shields.io/github/stars/uiwjs/date-formatter.svg)](https://github.com/uiwjs/date-formatter/stargazers) [![](https://img.shields.io/github/release/uiwjs/date-formatter.svg)](https://github.com/uiwjs/date-formatter/releases)
+            [![](https://img.shields.io/badge/Open%20in-unpkg-blue)](https://uiwjs.github.io/npm-unpkg/#/@uiw/formatter@${{steps.create_tag.outputs.versionNumber}}/file/README.md)
 
             ${{ steps.changelog.outputs.compareurl }}
+
             ${{ steps.changelog.outputs.changelog }}
-          draft: false
-          prerelease: false
 
       - name: Coveralls
         uses: coverallsapp/github-action@master
