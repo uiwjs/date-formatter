@@ -6,8 +6,8 @@ formatter
 
 Get a formatted date.
 
-- [Demo preview in CodePen](https://codepen.io/jaywcjlove/pen/zbZKmq).
-- [Demo preview in CodeSandbox](https://codesandbox.io/s/date-formatter-demo-jib1u)
+[![Demo preview in CodePen](https://shields.io/badge/Open%20in-CodePen-green?logo=codepen&style=flat)](https://codepen.io/jaywcjlove/pen/zbZKmq)
+[![Demo preview in CodeSandbox](https://shields.io/badge/Open%20in-CodeSandbox-green?logo=codesandbox&style=flat)](https://codesandbox.io/s/date-formatter-demo-jib1u)
 
 ### Install
 
