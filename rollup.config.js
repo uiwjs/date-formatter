@@ -1,4 +1,4 @@
-import typescript from 'rollup-plugin-typescript2';
+import typescript from '@rollup/plugin-typescript';
 import commonjs from '@rollup/plugin-commonjs';
 import { nodeResolve } from '@rollup/plugin-node-resolve';
 import { terser } from 'rollup-plugin-terser';
@@ -41,11 +41,7 @@ export default [{
   ],
   plugins: [
     nodeResolve(),
-    typescript({
-      clean: true,
-      rollupCommonJSResolveHack: true,
-      exclude: ['*.d.ts', '**/*.d.ts'],
-    }),
+    typescript(),
     commonjs(),
   ]
 }, {
@@ -60,11 +56,7 @@ export default [{
     },
   ],
   plugins: [
-    typescript({
-      clean: true,
-      rollupCommonJSResolveHack: true,
-      exclude: ['*.d.ts', '**/*.d.ts'],
-    }),
+    typescript(),
     terser({}),
   ]
 }];
