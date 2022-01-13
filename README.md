@@ -1,5 +1,5 @@
-formatter
----
+Formatter
+===
 
 [![GitHub Actions Build formatter](https://github.com/uiwjs/date-formatter/actions/workflows/ci.yml/badge.svg)](https://github.com/uiwjs/date-formatter/actions/workflows/ci.yml) [![](https://img.shields.io/npm/v/@uiw/formatter)](https://www.npmjs.com/package/@uiw/formatter) [![](https://img.shields.io/bundlephobia/min/@uiw/formatter)](https://www.npmjs.com/package/@uiw/formatter) ![](http://jaywcjlove.github.io/sb/status/no-dependencies.svg) [![Coverage Status](https://coveralls.io/repos/github/uiwjs/date-formatter/badge.svg?branch=master)](https://coveralls.io/github/uiwjs/date-formatter?branch=master)
 [![npm downloads](https://img.shields.io/npm/dm/@uiw/formatter.svg?style=flat)](https://www.npmjs.com/package/@uiw/formatter)
