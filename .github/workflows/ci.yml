@@ -38,8 +38,8 @@ jobs:
           ```bash
           $ npm install --save @uiw/formatter
           ```
-          
-          Documentation ${{ steps.tag_version.outputs.tag }}: https://raw.githack.com/uiwjs/formatter/${{ steps.tag_version.outputs.gh-pages-short-hash }}/index.html  
+
+          Documentation ${{ steps.tag_version.outputs.tag }}: https://raw.githack.com/uiwjs/date-formatter/${{ steps.tag_version.outputs.gh-pages-short-hash }}/index.html  
           Documentation Website: https://uiwjs.github.io/date-formatter/  
           EOF
 
