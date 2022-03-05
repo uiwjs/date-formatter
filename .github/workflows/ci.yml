@@ -32,7 +32,15 @@ jobs:
 
       - run: |
           cat > coverage/README.md << EOF
+          [![Demo preview in CodePen](https://shields.io/badge/Demo%20Open%20in-CodePen-success?logo=codepen&style=flat)](https://codepen.io/jaywcjlove/pen/zbZKmq)
+          [![Demo preview in CodeSandbox](https://shields.io/badge/Demo%20Open%20in-CodeSandbox-success?logo=codesandbox&style=flat)](https://codesandbox.io/s/date-formatter-demo-jib1u)
+
+          ```bash
+          $ npm install --save @uiw/formatter
+          ```
+          
           Documentation ${{ steps.tag_version.outputs.tag }}: https://raw.githack.com/uiwjs/formatter/${{ steps.tag_version.outputs.gh-pages-short-hash }}/index.html  
+          Documentation Website: https://uiwjs.github.io/date-formatter/  
           EOF
 
       - name: Deploy
@@ -40,6 +48,9 @@ jobs:
         with:
           commit_message: ${{steps.tag_version.outputs.tag}} ${{ github.event.head_commit.message }}
           github_token: ${{ secrets.GITHUB_TOKEN }}
+          exclude_assets: 'coverage-final.json,lcov.info,clover.xml'
+          user_name: 'github-actions[bot]'
+          user_email: 'github-actions[bot]@users.noreply.github.com'
           publish_dir: ./coverage
 
       - name: Generate Changelog
