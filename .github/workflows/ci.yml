@@ -31,7 +31,7 @@ jobs:
         uses: jaywcjlove/changelog-generator@v1.5.0
 
       - run: |
-          cat > README.md << EOF
+          cat > coverage/README.md << EOF
           Documentation ${{ steps.tag_version.outputs.tag }}: https://raw.githack.com/uiwjs/formatter/${{ steps.tag_version.outputs.gh-pages-short-hash }}/index.html  
           EOF
 
