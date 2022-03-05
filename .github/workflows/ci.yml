@@ -30,6 +30,11 @@ jobs:
         id: tag_version
         uses: jaywcjlove/changelog-generator@v1.5.0
 
+      - run: |
+          cat > README.md << EOF
+          Documentation ${{ steps.tag_version.outputs.tag }}: https://raw.githack.com/uiwjs/formatter/${{ steps.tag_version.outputs.gh-pages-short-hash }}/index.html  
+          EOF
+
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v3
         with:
