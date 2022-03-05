@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1646466646014" clover="3.2.0">
-  <project timestamp="1646466646014" name="All files">
+<coverage generated="1646466896565" clover="3.2.0">
+  <project timestamp="1646466896566" name="All files">
     <metrics statements="17" coveredstatements="17" conditionals="7" coveredconditionals="7" methods="3" coveredmethods="3" elements="27" coveredelements="27" complexity="0" loc="17" ncloc="17" packages="1" files="1" classes="1"/>
     <file name="index.ts" path="/home/runner/work/date-formatter/date-formatter/src/index.ts">
       <metrics statements="17" coveredstatements="17" conditionals="7" coveredconditionals="7" methods="3" coveredmethods="3"/>
