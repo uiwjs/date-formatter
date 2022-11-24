@@ -6,6 +6,10 @@
   "module": "esm/index.js",
   "unpkg": "dist/formatter.js",
   "typings": "dist/index.d.ts",
+  "exports": {
+    "import": "./esm/index.js",
+    "require": "./cjs/index.js"
+  },
   "scripts": {
     "prepare": "npm run build",
     "test": "jest --coverage",
