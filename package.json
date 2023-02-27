@@ -1,6 +1,6 @@
 {
   "name": "@uiw/formatter",
-  "version": "2.0.1",
+  "version": "2.0.2",
   "description": "Get a formatted date.",
   "main": "cjs/index.js",
   "module": "esm/index.js",
