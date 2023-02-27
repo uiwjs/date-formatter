@@ -34,6 +34,8 @@ test('should return the default formatter', () => {
 test('should return a fixed time format:', () => {
   expect(formatter('YYYY年MM月DD日', new Date(2019, 3, 7))).toEqual('2019年04月07日');
   expect(formatter('YYYY年MM月DD日 16:30:29', new Date(2019, 3, 7, 16, 30, 29))).toEqual('2019年04月07日 16:30:29');
+  expect(formatter('YYYY年MM月DD日 HH:mm-ss', new Date(2019, 3, 7, 16, 30, 29))).toEqual('2019年04月07日 16:30-29');
+  expect(formatter('YYYY/MM/DD HH:mm:ss', new Date(2019, 3, 7, 16, 30, 29))).toEqual('2019/04/07 16:30:29');
 });
 
 test('should work with delimiters', () => {

@@ -30,6 +30,12 @@ console.log(formatter('YYYY年MM月DD日', new Date(2019, 3, 7)))
 //=> 2019年04月07日
 console.log(formatter('YYYY年MM月DD日 16:30:29', new Date(2019, 3, 7, 16, 30, 29)))
 //=> 2019年04月07日 16:30:29
+console.log(formatter('YYYY年MM月DD日 HH:mm-ss', new Date(2019, 3, 7, 16, 30, 29)))
+//=> 2019年04月07日 16:30-29
+console.log(formatter('YYYY/MM/DD HH:mm:ss', new Date(2019, 3, 7, 16, 30, 29)))
+//=> 2019年04月07日 16:30-29
+console.log(formatter('YYYY/MM/DD HH:mm:ss', new Date(2019, 3, 7, 16, 30, 29)))
+//=> 2019/04/07 16:30:29
 
 
 console.log(formatter('YYYY'));
