@@ -11,6 +11,7 @@ jobs:
       - uses: actions/setup-node@v3
         with:
           node-version: 16
+          registry-url: 'https://registry.npmjs.org'
 
       - run: npm install
       - run: npm run build
@@ -80,6 +81,17 @@ jobs:
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
 
-      - uses: JS-DevTools/npm-publish@v1
+      # - uses: JS-DevTools/npm-publish@v1
+      #   with:
+      #     token: ${{ secrets.NPM_TOKEN }}
+
+      - name: package.json info
+        uses: jaywcjlove/github-action-package@main
         with:
-          token: ${{ secrets.NPM_TOKEN }}
+          unset: scripts,devDependencies
+
+      - run: npm publish
+        name: 📦 @uiw/formatter publish to NPM
+        continue-on-error: true
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
