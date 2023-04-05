@@ -17,17 +17,17 @@ function formatter(str?: string, date?: Date, utc?: boolean): string {
     str = 'YYYY-MM-DD';
   }
 
-  return str.replace(dateRegex, (match: string, key: string, rest?: string) => {
+  return str.replace(dateRegex, (match: string, key: keyof typeof timespan, rest?: string) => {
     const args = timespan[key];
     const chars = args[1];
-    let name = args[0];
+    let name = args[0] as keyof Date;
     if (utc === true) {
-      name = `getUTC${name.slice(3)}`;
+      name = `getUTC${String(name).slice(3)}` as keyof Date;
     }
     if (!date) {
       date = new Date();
     }
-    const val = `00${String(date[name]() + (args[2] || 0))}`;
+    const val = `00${String((date[name] as typeof Date)() + (args[2] || 0))}`;
     return val.slice(-chars) + (rest || '');
   });
 }
