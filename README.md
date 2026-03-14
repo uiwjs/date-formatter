@@ -3,5 +3,5 @@
 
 
 
-Documentation v2.0.2: https://raw.githack.com/uiwjs/date-formatter/1b7c590/index.html  
+Documentation v2.0.2: https://raw.githack.com/uiwjs/date-formatter/e8c3ae7/index.html  
 Documentation Website: https://uiwjs.github.io/date-formatter/  
